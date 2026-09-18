@@ -20,7 +20,7 @@ Record the exact command, your operating system, and the full error message. Ask
 
 Do not commit it. Check whether it can be shared at all, record where it is stored and how it was obtained, and add a small README describing the expected file or download step without including the data itself.
 
-## `docker compose up --build` fails with `ResourceExhausted: ... no space left on device`
+## docker compose up --build` fails with `ResourceExhausted: ... no space left on device
 
 This is Docker Desktop's own virtual disk filling up — it's separate from your
 Mac's actual free disk space, so `df -h` on the host can show plenty of room
@@ -73,4 +73,12 @@ doesn't fill a healthy Docker disk, but it makes an already-tight disk fail
 faster. Adding a `.dockerignore` that excludes `skills/upstream/`,
 `web_src/node_modules/`, `web_src/dist/`, and `bin/` would shrink the build
 context significantly — worth raising with the team if this keeps recurring.
+
+## Nextflow job submission fails
+
+The nomad server needs to be set up locally (or use global one). This information needs to be updated in the src/config.yaml
+
+nomad:
+     host: http://10.48.196.154
+     port: 4646
 
